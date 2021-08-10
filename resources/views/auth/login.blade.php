@@ -46,7 +46,16 @@
         <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
             <div class="login-box card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+
+                    @if (session()->has('error'))
+                        <alert class="alert alert-danger ml-3" role="alert"">
+                            {{session()->get('error')}}
+                        </alert>
+                        <hr>
+                    @endif
+
+
+                    <form method="POST" action="{{ route('log_in') }}">
                         @csrf
                         <h3 class="box-title m-b-20">Sign In</h3>
                         <div class="form-group ">
