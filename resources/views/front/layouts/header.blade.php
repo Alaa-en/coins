@@ -132,8 +132,7 @@
                                 </div>
                             </li>
                             @else
-                            <li> <a class="btn btn-outline-primary" href="{{route('login')}}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Login</span></a>
-
+                            <li> <a class="btn btn-outline-primary" href="{{route('login')}}" aria-expanded="false"><span class="hide-menu">Login</span></a>
                             @endif
                     </ul>
                 </div>

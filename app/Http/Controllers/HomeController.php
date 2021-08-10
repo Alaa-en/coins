@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     // public function __construct()
     // {
-    //     $this->middleware('auth');
+    //     $this->middleware('active');
     // }
 
     /**
@@ -21,16 +21,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+
+
     public function index()
     {
         return view('front.index');
     }
 
-    public function users()
-    {
-        $users = User::all();
-        return view('front.users')->with('users', $users);
-    }
+
 
 
 
@@ -39,39 +38,10 @@ class HomeController extends Controller
         $user = User::find($id);
         $user->active = $type;
         $user->save();
-        alert()->message('Sweet Alert with message.');
         return redirect()->back();
     }
 
-    public function myNotification($type)
-    {
-        switch ($type) {
-            case 'message':
-                alert()->message('Sweet Alert with message.');
-                break;
-            case 'basic':
-                alert()->basic('Sweet Alert with basic.', 'Basic');
-                break;
-            case 'info':
-                alert()->info('Sweet Alert with info.');
-                break;
-            case 'success':
-                alert()->success('Sweet Alert with success.', 'Welcome to ItSolutionStuff.com')->autoclose(3500);
-                break;
-            case 'error':
-                alert()->error('Sweet Alert with error.');
-                break;
-            case 'warning':
-                alert()->warning('Sweet Alert with warning.');
-                break;
-            default:
-                # code...
-                break;
-        }
 
-
-        return view('my-notification');
-    }
 
 
 }

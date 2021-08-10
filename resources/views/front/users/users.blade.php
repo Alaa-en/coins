@@ -10,9 +10,11 @@
                     </div>
                     <div class="col-md-7 align-self-center">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            {{-- <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                             <li class="breadcrumb-item">Apps</li>
-                            <li class="breadcrumb-item active">Dashboard 1</li>
+                            <li class="breadcrumb-item active">Dashboard 1</li> --}}
+                            <li> <a class="btn btn-outline-primary" href="{{route('user.create')}}" aria-expanded="false"><span class="hide-menu">create user</span></a>
+
                         </ol>
                     </div>
                 </div>
@@ -29,7 +31,9 @@
                                                 <th>name</th>
                                                 <th>email</th>
                                                 <th>created at</th>
-                                                <th>active</th>
+                                                <th>Delete</th>
+                                                <th>Edit</th>
+                                                <th>Active</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -42,6 +46,12 @@
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->email}}</td>
                                                 <td>{{$user->created_at->diffForHumans()}}</td>
+                                                <td>
+                                                    <a href="{{route('user.delete', $user->id)}}"><i class="far fa-trash-alt ml-3"></i></a>
+                                                </td>
+                                                <td>
+                                                    <a href="{{route('user.edit', $user->id)}}"><i class="far fa-edit ml-2"></i></a>
+                                                </td>
                                                 <td>
                                                     @if ($user->active)
                                                     <a class="btn waves-effect waves-light btn-outline-success"href="{{route('user.change_active',['id'=>$user->id,'type'=> 0])}}">active</a>
