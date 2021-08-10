@@ -15,7 +15,6 @@ class CreateCoinsVotingsTable extends Migration
     {
         Schema::create('coins_votings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
 

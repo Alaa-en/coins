@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Coin;
+use App\Traits\offerTrait;
+
 
 
 class CoinsController extends Controller
 {
+    use offerTrait;
     /**
      * Display a listing of the resource.
      *
@@ -36,11 +39,16 @@ class CoinsController extends Controller
      */
     public function store(Request $request)
     {
-        
         $input=$request->all();
         $input['user_id'] = auth()->user()->id ;
+
+        $file_name =    $this->saveImage($request->file('logo'),'images/coins' );
+        $input['logo'] = $file_name; 
+
         Coin::Create($input);
-       return  redirect(route('front.coins.addCoin'));
+        \Session::flash('flash_message',' تمت الاضافة بنجاح ');
+
+       return  redirect(route('coin.add'));
     }
 
     /**

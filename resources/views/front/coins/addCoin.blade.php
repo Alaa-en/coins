@@ -26,7 +26,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body wizard-content">
-                    <form  class="tab-wizard wizard-circle" method="POST" action="{{ route('coins.store') }}">
+                    <form  class="tab-wizard wizard-circle" method="POST" action="{{ route('coins.store') }}" enctype="multipart/form-data">
                      @csrf
                         <!-- Step 1 -->
                        
@@ -85,7 +85,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="firstName1"> Logo </label> 
-                                        <input type="text" class="form-control" name="logo"> </div>
+                                        <input type="file" class="form-control" name="logo" required> </div>
                                 </div>
                                 <div class="col-md-6">
                                     <h4 style="font-weight:bold">Coin links</h3>

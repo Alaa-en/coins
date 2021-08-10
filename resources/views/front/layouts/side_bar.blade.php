@@ -5,12 +5,12 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
             </li>
+            <li> <a class="has-arrow waves-effect waves-dark" href="{{route('home')}}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Home</span></a></li>
+
             <li> <a class="has-arrow waves-effect waves-dark" href="{{route('coin.add') }}" aria-expanded="false"><span class="hide-menu"> <i class="mdi mdi-plus"></i>Add coin</span></a>
 
-                <li> <a class="has-arrow waves-effect waves-dark" href="{{route('home')}}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Home</span></a></li>
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">PERSONAL</li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Add coin</span></a>
 
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Promote</span></a>
@@ -41,3 +41,4 @@
     <!-- ============================================================== -->
     <!-- Container fluid  -->
     <!-- ============================================================== -->
+      
