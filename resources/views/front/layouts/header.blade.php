@@ -105,16 +105,16 @@
                                             <div class="dw-user-box">
                                                 <div class="u-img"><img src="{{asset('assets/images/users/1.jpg') }}" alt="user"></div>
                                                 <div class="u-text">
-                                                    <h4>Steave Jobs</h4>
-                                                    <p class="text-muted">varun@gmail.com</p><a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                    <h4>{{Auth::user()->name}}</h4>
+                                                    <p class="text-muted">{{Auth::user()->email}}</p></div>
                                             </div>
                                         </li>
                                         <li role="separator" class="divider"></li>
                                         <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-                                        <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
+                                        {{-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                                         <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                        <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li> --}}
                                         <li role="separator" class="divider"></li>
                                         <li>
                                             <a class="dropdown-item" href="{{ route('logout') }}"

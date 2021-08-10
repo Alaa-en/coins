@@ -47,10 +47,12 @@
                                                 <td>{{$user->email}}</td>
                                                 <td>{{$user->created_at->diffForHumans()}}</td>
                                                 <td>
-                                                    <a href="{{route('user.delete', $user->id)}}"><i class="far fa-trash-alt ml-3"></i></a>
+                                                    <a href="{{route('user.delete', $user->id)}}"  class="btn btn-danger btn-circle"> <i class="fa fa-trash"></i> </a>
+                                                    {{-- <a href="{{route('user.delete', $user->id)}}"><i class="fa fa-trash-alt "></i></a> --}}
                                                 </td>
                                                 <td>
-                                                    <a href="{{route('user.edit', $user->id)}}"><i class="far fa-edit ml-2"></i></a>
+                                                    <a href="{{route('user.edit', $user->id)}}" class="btn btn-success btn-circle"> <i class="fa fa-pencil-alt"></i> </a>
+                                                    {{-- <a href="{{route('user.edit', $user->id)}}"><i class="far fa-edit "></i></a> --}}
                                                 </td>
                                                 <td>
                                                     @if ($user->active)
