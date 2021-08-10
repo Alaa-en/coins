@@ -6,6 +6,8 @@ Route::get('/', function () {
     return view('front.index');
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -25,4 +27,10 @@ Route::get('/change_active/{id}/{type}', 'HomeController@change_active')->name('
 
 
 
+
+
+###########   COINS ######3
+
+Route::get('coins/create', 'CoinsController@index')->name('coin.add');
+Route::post('/coins/store', 'CoinsController@store')->name('coins.store');
 
