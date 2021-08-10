@@ -15,14 +15,23 @@ class logincontroller extends Controller
     ]);
     $credentials = $request->only('email', 'password');
     if (Auth::attempt($credentials)) {
-        if(Auth::user()->active){
-            return redirect('/home');
-        }else{
+        if(Auth::user()->active  ){
+            if(Auth::user()->type == 'user'){
+                    return redirect('/home');
+            }
+            elseif(Auth::user()->type == 'admin'){
+                return redirect('/users');
+            }
+        }
+
+        else{
             Auth::logout();
             session()->flash('error', 'Invalid Email address or Password');
             return redirect('/login');
         }
-    } else {
+
+    }
+     else {
         session()->flash('error', 'Invalid Email address or Password');
         return redirect('/login');
         }

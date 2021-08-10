@@ -15,7 +15,13 @@
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Promote</span></a>
 
                 </li>
+                @if (Auth::user())
+
+                @if (Auth::user()->type == 'admin')
                 <li> <a class="has-arrow waves-effect waves-dark" href="{{route('users')}}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Users</span></a>
+                </li>
+                @endif
+                @endif
 
 
 

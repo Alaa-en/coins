@@ -46,6 +46,17 @@
         <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
             <div class="login-box card">
                 <div class="card-body">
+                @if (count($errors) > 0)
+                <ul>
+                    @foreach ($errors->all() as $item)
+                        <div class="alert alert-danger" role="alert">
+                            <li>
+                                {{$item}}
+                            </li>
+                          </div>
+                    @endforeach
+                </ul>
+                @endif
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <h3 class="box-title m-b-20">Sign Up</h3>
