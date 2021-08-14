@@ -30,7 +30,7 @@ Route::get('/change_active/{id}/{type}', 'HomeController@change_active')->name('
 
 
 ###########   COINS ######3
-
-Route::get('coins/create', 'CoinsController@index')->name('coin.add');
+Route::get('/home', 'CoinsController@index')->name('home');
+Route::get('coins/create', 'CoinsController@create')->name('coin.add');
 Route::post('/coins/store', 'CoinsController@store')->name('coins.store');
 

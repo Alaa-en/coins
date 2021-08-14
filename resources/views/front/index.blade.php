@@ -19,49 +19,31 @@
               
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Table Hover</h4>
-                            <h6 class="card-subtitle">Add class <code>.table-hover</code></h6>
+                            <h4 class="card-title">Promoted coins</h4>
+                           
                     <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>Products</th>
-                                                <th>Popularity</th>
+                                                <th>logo</th>
+                                                <th>Name</th>
                                                 <th>Price</th>
+                                                <th>created_at</th>
                                                 <th>action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                           @foreach ($coins as $coin)
+                                               
+                                          
                                             <tr>
-                                                <td>1</td>
-                                                <td>Milk Powder</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,-3,-2,-4,-5,-4,-3,-2,-5,-1</span> </td>
-                                                <td><span class="text-danger text-semibold"> 28.76%</span> </td>
+                                                <td> <img width="60px" src= "{{ asset ('images/coins/'. $coin->logo) }}" alt='image'> </td>
+                                                <td>{{ $coin->name }}</td>
+                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">{{ $coin->price }}</span> </td>
+                                                <td>{{$coin->updated_at->toDateString()}}</td>
                                                 <td><button   type="button" class="btn waves-effect waves-light btn-outline-success" ><i class="fa fa-level-up" aria-hidden="true"></i>Success</button> </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Air Conditioner</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,-1,-1,-2,-3,-1,-2,-3,-1,-2</span> </td>
-                                                <td><span class="text-warning text-semibold"> 8.55%</span> </td>
-                                                <td><button type="button" class="btn waves-effect waves-light btn-outline-success"><i class="fa fa-level-up" aria-hidden="true"></i> Success</button> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>RC Cars</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,3,6,1,2,4,6,3,2,1</span> </td>
-                                                <td><span class="text-success text-semibold"> 58.56%</span> </td>
-                                                <td><button type="button" class="btn waves-effect waves-light btn-outline-success"> <i class="fa fa-level-up" aria-hidden="true"></i>Success</button> </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Down Coat</td>
-                                                <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">0,3,6,4,5,4,7,3,4,2</span> </td>
-                                                <td><span class="text-info text-semibold"> 35.76%</span> </td>
-                                                <td><button type="button" class="btn waves-effect waves-light btn-outline-success"> <i class="fa fa-level-up" aria-hidden="true"></i>Success</button> </td>
-                                            </tr>
+                                            @endforeach
                                             
                                         </tbody>
                                     </table>

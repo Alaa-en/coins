@@ -8,8 +8,11 @@ use App\Traits\offerTrait;
 
 
 
+
 class CoinsController extends Controller
 {
+    
+
     use offerTrait;
     /**
      * Display a listing of the resource.
@@ -18,7 +21,9 @@ class CoinsController extends Controller
      */
     public function index()
     {
-        return view('front.coins.addCoin');
+        $coins=Coin::all();
+        return view('front.index',compact('coins'));
+
     }
 
     /**
@@ -28,7 +33,7 @@ class CoinsController extends Controller
      */
     public function create()
     {
-        //
+        return view('front.coins.addCoin');
     }
 
     /**
@@ -46,8 +51,6 @@ class CoinsController extends Controller
         $input['logo'] = $file_name; 
 
         Coin::Create($input);
-        \Session::flash('flash_message',' تمت الاضافة بنجاح ');
-
        return  redirect(route('coin.add'));
     }
 
