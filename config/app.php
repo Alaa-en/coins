@@ -161,7 +161,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        // UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
     ],
 
