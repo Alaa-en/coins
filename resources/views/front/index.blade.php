@@ -41,8 +41,9 @@
                                                 <td>{{ $coin->name }}</td>
                                                 <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">{{ $coin->price }}</span> </td>
                                                 <td>{{$coin->updated_at->toDateString()}}</td>
-                                                <td><button   type="button" class="btn waves-effect waves-light btn-outline-success" ><i class="fa fa-level-up" aria-hidden="true"></i>Success</button> </td>
+                                                <td><button    type="button" class="btn waves-effect waves-light btn-outline-success" ><i class="fa fa-level-up" aria-hidden="true"></i>Success</button> </td>
                                             </tr>
+                                            
                                             @endforeach
                                             
                                         </tbody>

@@ -187,11 +187,13 @@
         </ul>
 
     </div>
-</div>
+
+
    <div class="row" style="text-align:center;">
        <div class="col-md-12"><i class="fa fa-twitter"></i> <i class="fa fa-telegram"></i></div>
 
    </div>
+</div>  
 
          
              
