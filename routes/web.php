@@ -29,7 +29,7 @@ Route::get('/change_active/{id}/{type}', 'HomeController@change_active')->name('
 
 
 
-###########   COINS ######3
+###########   COINS ######
 Route::get('/home', 'CoinsController@index')->name('home');
 Route::get('coins/create', 'CoinsController@create')->name('coin.add');
 ###########   COINS   #########
@@ -40,4 +40,7 @@ Route::get('/coins/show', 'admin\CoinsController@show')->name('coins.show');
 Route::get('/coins/details/{id}', 'admin\CoinsController@details')->name('coins.details');
 Route::get('/coins/delete/{id}', 'admin\CoinsController@destroy')->name('coins.delete');
 Route::get('/coins/promoted/{id}/{type}', 'admin\CoinsController@promoted')->name('coins.promoted');
+
+######3#### Promote ######
+Route::get('/promote', 'PromoteController@index')->name('promote');
 

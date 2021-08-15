@@ -14,9 +14,11 @@
                 <li class="nav-devider"></li>
                 <li class="nav-small-cap">PERSONAL</li>
 
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Promote</span></a> </li>
 
                 @endif
+                <li> <a class="has-arrow waves-effect waves-dark" href="{{route('promote') }}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Promote</span></a>
+                    </li>
+
 
                 @if (Auth::user())
 
