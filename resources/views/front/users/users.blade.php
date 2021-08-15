@@ -60,7 +60,9 @@
                                                     @else
                                                     <a class="btn waves-effect waves-light btn-outline-danger"href="{{route('user.change_active',['id'=>$user->id,'type'=> 1])}}">not active</a>
                                                     @endif
- </td>
+                                                </td>
+
+                                         </td>
                                             </tr>
                                             @endforeach
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Coin;
+use Auth;
 use App\Traits\offerTrait;
 
 
@@ -11,7 +12,7 @@ use App\Traits\offerTrait;
 
 class CoinsController extends Controller
 {
-    
+
 
     use offerTrait;
     /**
@@ -24,6 +25,7 @@ class CoinsController extends Controller
         $coins=Coin::all();
         return view('front.index',compact('coins'));
 
+
     }
 
     /**
@@ -33,7 +35,11 @@ class CoinsController extends Controller
      */
     public function create()
     {
-        return view('front.coins.addCoin');
+        if(Auth::User()){
+            return view('front.coins.addCoin');
+        }else{
+            return redirect('login');
+        }
     }
 
     /**
@@ -47,8 +53,8 @@ class CoinsController extends Controller
         $input=$request->all();
         $input['user_id'] = auth()->user()->id ;
 
-        $file_name =    $this->saveImage($request->file('logo'),'images/coins' );
-        $input['logo'] = $file_name; 
+        $file_name = $this->saveImage($request->file('logo'),'images/coins' );
+        $input['logo'] = $file_name;
 
         Coin::Create($input);
        return  redirect(route('coin.add'));

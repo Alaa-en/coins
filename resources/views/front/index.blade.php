@@ -16,11 +16,11 @@
                         </ol>
                     </div>
                 </div>
-              
+
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Promoted coins</h4>
-                           
+
                     <div class="table-responsive">
                                     <table class="table table-hover">
                                         <thead>
@@ -34,8 +34,8 @@
                                         </thead>
                                         <tbody>
                                            @foreach ($coins as $coin)
-                                               
-                                          
+
+
                                             <tr>
                                                 <td> <img width="60px" src= "{{ asset ('images/coins/'. $coin->logo) }}" alt='image'> </td>
                                                 <td>{{ $coin->name }}</td>
@@ -44,13 +44,13 @@
                                                 <td><button   type="button" class="btn waves-effect waves-light btn-outline-success" ><i class="fa fa-level-up" aria-hidden="true"></i>Success</button> </td>
                                             </tr>
                                             @endforeach
-                                            
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                   
+
 
 
                     <div class="card">
@@ -151,11 +151,11 @@
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
             </div>
-                
-               
+
+
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -163,7 +163,6 @@
                 <!-- ============================================================== -->
                 <!-- End Page Content -->
                 <!-- ============================================================== -->
-    
+
             </div>
             @endsection
-           
