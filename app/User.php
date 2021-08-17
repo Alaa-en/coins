@@ -29,4 +29,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function coins(){
+        return $this->hasMany('App\Models\Coin', 'user_id');
+    }
 }

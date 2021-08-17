@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Models\Coin;
 use Auth;
 use App\Traits\offerTrait;
@@ -23,7 +24,7 @@ class CoinsController extends Controller
     public function index()
     {
         $coins=Coin::all();
-        return view('front.index',compact('coins'));
+        return view('front.index')->with('coins', $coins);
 
 
     }
@@ -42,12 +43,7 @@ class CoinsController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $input=$request->all();
@@ -60,46 +56,26 @@ class CoinsController extends Controller
        return  redirect(route('coin.add'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function show()
     {
-        //
+        $coins = Coin::where('user_id', auth()->user()->id)->get();
+        return view('front.coins.mycoins')->with('coins', $coins);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //

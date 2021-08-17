@@ -15,16 +15,21 @@
                 <li class="nav-small-cap">PERSONAL</li>
 
 
-                @endif
+
                 <li> <a class="has-arrow waves-effect waves-dark" href="{{route('promote') }}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Promote</span></a>
                     </li>
+
+            @endif
 
 
                 @if (Auth::user())
 
                 @if (Auth::user()->type == 'admin')
-                <li> <a class="has-arrow waves-effect waves-dark" href="{{route('users')}}" aria-expanded="false"><i class="mdi mdi-bullseye"></i><span class="hide-menu">Users</span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="{{route('users')}}" aria-expanded="false"><span class="hide-menu">Users</span></a>
                 </li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="{{route('new.coins')}}" aria-expanded="false"><span class="hide-menu"> New coin  </span></a>
+                </li>
+
                 @endif
                 @endif
 

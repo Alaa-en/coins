@@ -13,6 +13,7 @@ class UsersController extends Controller
         return view('front.users.users')->with('users', $users);
     }
 
+
     public function index()
     {
         //
@@ -49,11 +50,13 @@ class UsersController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit()
     {
-        $user = User::find($id);
+        $user = User::where('id', auth()->user()->id)->first();
         return view('front.users.edit')->with('user', $user);
     }
+
+
 
 
     public function update(Request $request, $id)
@@ -71,9 +74,40 @@ class UsersController extends Controller
 
         if($request->has('password')){
             $user->password = Hash::make($request->password);
-            $user->save();
         }
+        $user->save();
+
         return redirect()->route('users');
+
+
+    }
+
+    public function editProfile()
+    {
+        $user = User::where('id', auth()->user()->id)->first();
+        return view('front.users.editProfile')->with('user', $user);
+    }
+
+
+    public function updateProfile(Request $request, $id)
+    {
+        $user = User::find($id);
+
+        $this->validate($request, [
+            'name' =>'required',
+            'email' =>'required',
+            'password' =>'required',
+
+        ]);
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if($request->has('password')){
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return redirect()->route('home');
 
 
     }

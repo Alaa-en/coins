@@ -19,8 +19,9 @@ class Coin extends Model
 
       ];
 
-      public function getLogoAttribute($logo)
-    {
-        return asset($logo);
+      public function coins(){
+        return $this->belongsTo('App\User', 'user_id');
     }
+
+
 }

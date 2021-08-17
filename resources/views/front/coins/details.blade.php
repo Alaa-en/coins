@@ -22,7 +22,7 @@
 
           <tr>
             <td>
-              <img src="{{asset('images/coins/'.$coins->logo)}}" alt="iamge">
+              <img src="{{asset($coins->logo)}}" alt="iamge" width="80px" height="70px">
             </td>
             <td>{{$coins->name}}</td>
             <td>{{$coins->price}}</td>

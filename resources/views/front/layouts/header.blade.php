@@ -110,7 +110,10 @@
                                             </div>
                                         </li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                    @if (auth()->user()->type == 'user')
+                                        <li><a href="{{route('mycoins')}}"><i class="fa fa-coins"></i> My Coins</a></li>
+                                    @endif
+                                        <li><a href="{{route('profile.edit')}}"><i class="ti-user"></i> My Profile</a></li>
                                         {{-- <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
                                         <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
                                         <li role="separator" class="divider"></li>
