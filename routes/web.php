@@ -44,6 +44,10 @@ Route::get('/coins/edit/{id}', 'admin\CoinsController@edit')->name('coins.edit')
 Route::post('/coins/update/{id}', 'admin\CoinsController@update')->name('coins.update');
 Route::get('/coins/promoted/{id}/{type}', 'admin\CoinsController@promoted')->name('coins.promoted');
 
+       ###   Coins-Voting  ####
+Route::post('/coinsVoting/store/{id}', 'CoinsVotingController@store')->name('coinsVoting.store');
+
+
 ######3#### Promote ######
 Route::get('/promote', 'PromoteController@index')->name('promote');
 Route::get('/mycoins', 'CoinsController@show')->name('mycoins');

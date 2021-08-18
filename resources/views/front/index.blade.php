@@ -29,12 +29,15 @@
 
 
                                             <tr>
-                                                <td> <img width="60px" src= "{{ asset ($coin->logo) }}" alt='image' /> </td>
+                                                <td> <img width="60px" src= "{{ asset ('images/coins/'.$coin->logo) }}" alt='image' /> </td>
                                                 <td>{{ $coin->name }}</td>
                                                 <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">{{ $coin->price }}</span> </td>
                                                 <td>{{$coin->updated_at->diffForhumans()}}</td>
-                                                <td><button    type="button" class="btn waves-effect waves-light btn-outline-success" ><i class="fa fa-level-up" aria-hidden="true"></i>Votes</button> </td>
-                                            </tr>
+                                                <form method="post" action="{{route('coinsVoting.store',$coin->id)}}" enctype="multipart/form-data">
+                                                    @csrf
+                                                <td> <button type="submit" class="btn waves-effect waves-light btn-outline-success" ><i class="fa fa-level-up" aria-hidden="true"></i>Votes</button> </td>
+                                                </form>
+                                                </tr>
                                             @endif
 
                                             @endforeach
@@ -74,7 +77,7 @@
 
 
                                             <tr>
-                                                <td> <img width="60px" src= "{{ asset ($coin->logo) }}" alt='image'/> </td>
+                                                <td> <img width="60px" src= "{{ asset ('images/coins/'.$coin->logo) }}" alt='image'/> </td>
                                                 <td>{{ $coin->name }}</td>
                                                 <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">{{ $coin->price }}</span> </td>
                                                 <td>{{$coin->updated_at->diffForHumans()}}</td>

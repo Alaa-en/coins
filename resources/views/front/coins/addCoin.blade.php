@@ -20,9 +20,7 @@
         <div class="col-lg-6">
             <h2 style="font-weight:bold">Coin listing request</h2>
         </div>
-        <div class="col-lg-6" style="text-align:right;">
-            <button style=" background-color:#458797" class="btn  btn-info">Create your coin</button>
-        </div>
+       
         <div class="col-12">
             <div class="card">
                 <div class="card-body wizard-content">
