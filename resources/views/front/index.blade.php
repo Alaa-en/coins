@@ -1,11 +1,19 @@
 @extends('front.layouts.app')
             @section('content')
             <div class="container-fluid">
+              
 
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
                         <h3 class="text-themecolor">Promoted coins</h3>
+                        @if (session()->has('danger'))
+                        <div class="alert alert-danger" role="alert">
+                            {{session()->get('danger')}}
+                          </div>
+    
+                        @endif
                     </div>
+                  
 
                 </div>
 

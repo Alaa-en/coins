@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Coin;
 use App\Models\Coins_voting;
+use App\Models\Guest_voting;
+use Exception;
 
 
 
@@ -40,10 +42,33 @@ class CoinsVotingController extends Controller
     {
         $coins = Coin::find($id);
 
-        Coins_voting::create([
-            'coin_id'=>$coins->id,
-            'user_id'=>$coins->user_id,
-         ]);
+        if(auth()->user()){
+            try {
+                Coins_voting::create([
+                    'coin_id'=>$coins->id,
+                    'user_id'=>$coins->user_id,
+                 ]);
+            }
+            catch (exception $e) {
+                \session()->flash('danger','you have voting before');
+                return redirect()->back();
+            }
+           
+        }else{
+            try {
+                Guest_voting::create([
+                    'coin_id'=>$coins->id,
+                    'ip_adress'=>$request->ip(),
+                 ]);
+            }
+            catch (exception $e) {
+                \session()->flash('danger','you have voting before');
+                return redirect()->back();
+            }
+           
+        }
+
+        
          return redirect(route('home'));
 
           
