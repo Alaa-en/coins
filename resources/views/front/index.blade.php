@@ -77,7 +77,11 @@
 
 
                                             <tr>
+<<<<<<< Updated upstream
                                                 <td> <img width="60px" src= "{{ asset ('images/coins/'.$coin->logo) }}" alt='image'/> </td>
+=======
+                                                <td> <img  src= "{{ asset ('images/coins/'. $coin->logo) }}" alt='image' width="70px" height="70px" style="border-radius: 50%"/> </td>
+>>>>>>> Stashed changes
                                                 <td>{{ $coin->name }}</td>
                                                 <td><span class="peity-line" data-width="120" data-peity='{ "fill": ["#009efb"], "stroke":["#009efb"]}' data-height="40">{{ $coin->price }}</span> </td>
                                                 <td>{{$coin->updated_at->diffForHumans()}}</td>

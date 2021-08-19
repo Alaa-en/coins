@@ -58,7 +58,7 @@
 
                                             <td>
 
-                                                    <a href="{{route('coins.accept', $coin->id)}}" class="btn btn-outline-primary mb-2">accept</a>
+                                            <a href="{{route('coins.accept', $coin->id)}}" class="btn btn-outline-primary mb-2">accept</a>
 
                                             </td>
                                             <td>

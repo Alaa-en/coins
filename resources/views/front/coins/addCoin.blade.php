@@ -11,11 +11,22 @@
         ::placeholder{
             font-weight: bold;
         }
-      
+
     </style>
 </head>
 <body>
+
+
+
    <div class="container">
+
+    @if (session()->has('success'))
+    <div class="alert alert-success" role="alert">
+        {{session()->get('success')}}
+      </div>
+
+    @endif
+    
     <div class="row">
         <div class="col-lg-6">
             <h2 style="font-weight:bold">Coin listing request</h2>
@@ -27,7 +38,7 @@
                     <form  class="tab-wizard wizard-circle" method="POST" action="{{ route('coins.store') }}" enctype="multipart/form-data">
                      @csrf
                         <!-- Step 1 -->
-                       
+
                         <section>
                             <div class="row">
                                 <div class="col-md-6">
@@ -40,7 +51,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="firstName1"> Name </label> 
+                                        <label for="firstName1"> Name </label>
                                         <span style="font-size:10px; color:red; padding-left:7px;">Required</span>
                                         <input type="text" class="form-control" name="name" placeholder="EX : Bitcoin"> </div>
                                 </div>
@@ -74,7 +85,7 @@
                                     <div class="form-group">
                                         <label for="date1">Solana</label>
                                         <input placeholder="Ex:xxxxxxxxxxxx " type="text" class="form-control" name="solana"> </div>
-                                    <div class="form-group">    
+                                    <div class="form-group">
                                         <label for="lastName1">Polygon</label>
                                         <input placeholder="Ex:0x00000000000 " type="text" class="form-control" name="polygon"> </div>
                                 </div>
@@ -82,7 +93,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="firstName1"> Logo </label> 
+                                        <label for="firstName1"> Logo </label>
                                         <input type="file" class="form-control" name="logo" required> </div>
                                 </div>
                                 <div class="col-md-6">
@@ -92,21 +103,21 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="firstName1">Price </label> 
+                                        <label for="firstName1">Price </label>
                                         <input type="number" class="form-control" name="price"> </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="firstName1"> Website </label> 
+                                        <label for="firstName1"> Website </label>
                                         <span style="font-size:10px; color:red; padding-left:7px;">Required</span>
                                         <input type="text" class="form-control" name="website"> </div>
                                 </div>
-                               
+
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="firstName1"> Market cap </label> 
+                                        <label for="firstName1"> Market cap </label>
                                         <input type="text" class="form-control" name="market_cap"> </div>
                                 </div>
                                 <div class="col-md-6">
@@ -130,7 +141,7 @@
                             </div><div class="row">
                                 <div class="col-md-6">
                                     <input type="checkbox" name="presale"><label for="vehicle2">Presale</label>
-                                    
+
 
 
                                 </div>
@@ -147,8 +158,8 @@
                                 </div>
                             </div>
                         </section>
-                    </form>   
-                            
+                    </form>
+
                             <div style=" margin-top:20px; border:1px solid lightgray; padding:10px;" class="row">
                                 <div class="col-lg-12" style="text-align: center;">
                                     <h3 style="font-weight:bold">Listing requirements</h3>
@@ -164,17 +175,17 @@
                                     </div>
                                 </div>
                             </div>
-   
+
                 </div>
             </div>
         </div>
 
 
-       
+
     </div>
-   
-    
-   </div> 
+
+
+   </div>
    <div class="row"  style="text-align:center;">
     <div class="col-md-12"  >
         <ul style="list-style-type: none;">
@@ -191,10 +202,10 @@
        <div class="col-md-12"><i class="fa fa-twitter"></i> <i class="fa fa-telegram"></i></div>
 
    </div>
-</div>  
+</div>
 
-         
-             
+
+
 </body>
 </html>
 @endsection

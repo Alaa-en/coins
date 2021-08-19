@@ -25,10 +25,19 @@
                 @if (Auth::user())
 
                 @if (Auth::user()->type == 'admin')
-                <li> <a class="has-arrow waves-effect waves-dark" href="{{route('users')}}" aria-expanded="false"><span class="hide-menu">Users</span></a>
+
+                    <li> <a class="has-arrow waves-effect waves-dark " href="{{route('users') }}" aria-expanded="false"> <i class="fa fa-users"></i><span class="hide-menu ">  Users</span></a></li>
+
+                <li> <a class="has-arrow waves-effect waves-dark " href="{{route('new.coins')}}" aria-expanded="false"> <i class="fa fa-coins"></i><span class="hide-menu"> New coin </span></a>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="{{route('new.coins')}}" aria-expanded="false"><span class="hide-menu"> New coin  </span></a>
+                <li> <a class="has-arrow waves-effect waves-dark " href="{{route('coins.show')}}" aria-expanded="false"> <i class="fa fa-coins"></i><span class="hide-menu"> All coins  </span></a>
                 </li>
+                @php
+                 $coins = \App\Models\Coin::where('delete_request', 'new')->get();
+                @endphp
+                <li> <a class="has-arrow waves-effect waves-dark " href="{{route('request.delete')}}" aria-expanded="false"> <i class="fa fa-coins"></i><span class="hide-menu"> delete request ( {{$coins->count()}} ) </span></a>
+                </li>
+
 
                 @endif
                 @endif

@@ -9,10 +9,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
+
+
 Route::post('/log_in', 'logincontroller@login')->name('log_in');
-
-
 //routes for users
 Route::get('/users', 'UsersController@users')->name('users');
 Route::get('/user/create', 'UsersController@create')->name('user.create');
@@ -26,12 +26,7 @@ Route::get('/user/delete/{id}', 'UsersController@destroy')->name('user.delete');
 
 Route::get('/change_active/{id}/{type}', 'HomeController@change_active')->name('user.change_active');
 
-
-
-
-
 ###########   COINS ######
-Route::get('/home', 'CoinsController@index')->name('home');
 Route::get('coins/create', 'CoinsController@create')->name('coin.add');
 ###########   COINS   #########
 
@@ -49,10 +44,18 @@ Route::post('/coinsVoting/store/{id}', 'CoinsVotingController@store')->name('coi
 
 
 ######3#### Promote ######
-Route::get('/promote', 'PromoteController@index')->name('promote');
 Route::get('/mycoins', 'CoinsController@show')->name('mycoins');
 Route::get('/usercoins/{id}', 'admin\CoinsController@user_conins')->name('user.coins');
 Route::get('/new/coins', 'admin\CoinsController@new_coins')->name('new.coins');
 Route::get('/coins/accept/{id}', 'admin\CoinsController@accept_coin')->name('coins.accept');
 Route::get('/coins/reject/{id}', 'admin\CoinsController@reject_coin')->name('coins.reject');
 
+Route::get('/request/delete', 'admin\CoinsController@request_delete')->name('request.delete');
+Route::get('/new/request/delete/{id}', 'admin\CoinsController@new_request_delete')->name('new.request.delete');
+Route::get('/new/request/accept/{id}', 'admin\CoinsController@new_request_accept')->name('new.request.accept');
+Route::get('/new/request/reject/{id}', 'admin\CoinsController@new_request_reject')->name('new.request.reject');
+
+
+
+Route::get('/promote', 'PromoteController@index')->name('promote');
+Route::get('/home', 'CoinsController@index')->name('home');

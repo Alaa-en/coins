@@ -10,10 +10,52 @@ use Auth;
 class CoinsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
     }
+
+
+
+
+
+    public function request_delete()
+    {
+        $coins = Coin::where('delete_request', 'new')->get();
+        return view('front.users.request_delete',compact('coins'));
+    }
+
+    public function new_request_delete($id)
+    {
+        $coin = Coin::find($id);
+        $coin->delete_request = 'new';
+        $coin->save();
+        return redirect()->back()->with('success', 'Your request sent wait admin to approve ');
+    }
+
+    public function new_request_accept($id)
+    {
+        $coin = Coin::find($id);
+        $coin->delete_request = 'null';
+        $coin->delete();
+        $coin->save();
+        return redirect()->back();
+    }
+
+    public function new_request_reject($id)
+    {
+        $coin = Coin::find($id);
+        $coin->delete_request = 'null';
+        $coin->save();
+        return redirect()->back();
+    }
+
+
     public function new_coins()
     {
         $coins = Coin::where('status', 'new')->get();
@@ -62,8 +104,8 @@ class CoinsController extends Controller
 
     public function show()
     {
-        $coins = Coin::all();
-        return view('front.coins.show')->with('coins', $coins);
+        $coins = Coin::withTrashed()->get();
+        return view('front.users.show')->with('coins', $coins);
     }
 
     public function user_conins($id)

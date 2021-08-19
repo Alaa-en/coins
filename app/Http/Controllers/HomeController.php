@@ -24,9 +24,10 @@ class HomeController extends Controller
 
 
 
-    public function index()
+    public function __construct()
     {
-        return view('front.index');
+        $this->middleware('auth');
+
     }
 
 
@@ -41,7 +42,7 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    
+
 
 
 

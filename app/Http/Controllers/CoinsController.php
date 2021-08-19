@@ -16,11 +16,12 @@ class CoinsController extends Controller
 
 
     use offerTrait;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+    }
+
     public function index()
     {
         $coins=Coin::all();
@@ -53,7 +54,7 @@ class CoinsController extends Controller
         $input['logo'] = $file_name;
 
         Coin::Create($input);
-       return  redirect(route('coin.add'));
+       return  redirect(route('coin.add'))->with('success', 'your coin will be reviewd by the admin');
     }
 
 

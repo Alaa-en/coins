@@ -4,7 +4,7 @@
 
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h3 class="text-themecolor"> coins</h3>
+                        <h3 class="text-themecolor">request delete coins</h3>
                     </div>
 
                 </div>
@@ -13,12 +13,6 @@
                         <div class="card-body">
                     <div class="table-responsive">
 
-                        @if (session()->has('success'))
-                        <div class="alert alert-success" role="alert">
-                            {{session()->get('success')}}
-                          </div>
-
-                        @endif
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
@@ -30,6 +24,8 @@
                                                 <th scope="col">Details</th>
                                                 <th scope="col">Delete</th>
                                                 <th scope="col">Edit</th>
+                                                <th scope="col">accept</th>
+                                                <th scope="col">reject</th>
                                               </tr>
                                         </thead>
                                         <tbody>
@@ -42,7 +38,7 @@
                                           <tr>
                                             <th scope="row">{{$i++}}</th>
                                             <td>
-                                              <img src="{{ asset ('images/coins/'.$coin->logo) }}" alt="iamge"  width="70px" height="70px" style="border-radius: 50%">
+                                              <img src="{{ asset ('images/coins/'. $coin->logo) }}" alt="iamge"  width="70px" height="70px" style="border-radius: 50%">
                                             </td>
                                             <td>{{$coin->name}}</td>
                                             <td>{{$coin->price}}</td>
@@ -53,12 +49,27 @@
                                             </td>
 
                                             <td>
-                                                <a href="{{route('new.request.delete', $coin->id)}}"  class="btn btn-danger btn-circle"> <i class="fa fa-trash"></i> </a>
+                                                <a href="{{route('coins.delete', $coin->id)}}"  class="btn btn-danger btn-circle"> <i class="fa fa-trash"></i> </a>
                                             </td>
 
                                             <td>
                                                 <a href="{{route('coins.edit', $coin->id)}}" class="btn btn-success btn-circle"> <i class="fa fa-pencil-alt"></i> </a>
                                             </td>
+
+                                            <td>
+
+                                            <a href="{{route('new.request.accept', $coin->id)}}" class="btn btn-outline-primary mb-2">accept</a>
+
+                                            </td>
+                                            <td>
+
+                                                <a href="{{route('new.request.reject', $coin->id)}}" class="btn btn-outline-danger"> reject </a>
+
+                                            </td>
+
+
+
+
 
 
                                           </tr>
