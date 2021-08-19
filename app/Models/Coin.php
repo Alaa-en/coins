@@ -19,8 +19,15 @@ class Coin extends Model
 
       ];
 
-      public function coins(){
-        return $this->belongsTo('App\User', 'user_id');
+      public function users(){
+        return $this->belongsToMany('App\User', 'coins_votings','coin_id' , 'user_id');
+    }
+
+    public function coinsVoting(){
+        return $this->hasMany(Coins_voting::class);
+    }
+    public function guestVoting(){
+        return $this->hasMany(Guest_voting::class);
     }
 
 

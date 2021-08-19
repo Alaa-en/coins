@@ -8,4 +8,10 @@ class Guest_voting extends Model
 {
     protected $fillable = ['ip_adress' , 'coin_id'];
 
+
+
+    public function coin(){
+        return $this->belongsTo(Coin::class);
+    }
+
 }

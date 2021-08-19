@@ -25,7 +25,7 @@ class CoinsController extends Controller
     public function index()
     {
         $coins=Coin::all();
-        return view('front.index')->with('coins', $coins);
+        return view('front.index',\compact('coins'));
 
 
     }
