@@ -24,7 +24,7 @@ class CoinsController extends Controller
 
     public function index()
     {
-        $coins=Coin::all();
+        $coins=Coin::with('coinsVoting')->get();
         return view('front.index',\compact('coins'));
 
 

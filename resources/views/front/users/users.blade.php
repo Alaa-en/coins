@@ -1,4 +1,13 @@
 @extends('front.layouts.app')
+@section('styless')
+<link href="{{('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{('assets/plugins/select2/dist/css/select2.min.css')}} rel="stylesheet" type="text/css" />
+    <link href="{{('assets/plugins/switchery/dist/switchery.min.css')}} rel="stylesheet" />
+    <link href="{{('assets/plugins/bootstrap-select/bootstrap-select.min.css')}} rel="stylesheet" />
+    <link href="{{('assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}} rel="stylesheet" />
+    <link href="{{('assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}} rel="stylesheet" />
+    <link href="{{('assets/plugins/multiselect/css/multi-select.css')}} rel="stylesheet" type="text/css" />
+@endsection
             @section('content')
             <div class="container-fluid">
 
@@ -54,11 +63,14 @@
                                                     <a href="{{route('user.edit')}}" class="btn btn-success btn-circle"> <i class="fa fa-pencil-alt"></i> </a>
                                                 </td>
                                                 <td>
-                                                    @if ($user->active)
+                                                    {{-- @if ($user->active)
                                                     <a class="btn waves-effect waves-light btn-outline-success"href="{{route('user.change_active',['id'=>$user->id,'type'=> 0])}}">active</a>
                                                     @else
                                                     <a class="btn waves-effect waves-light btn-outline-danger"href="{{route('user.change_active',['id'=>$user->id,'type'=> 1])}}">not active</a>
-                                                    @endif
+                                                    @endif --}}
+                                                    <div class="switchery-demo m-b-30">
+                                                    <input type="checkbox" checked class="js-switch" data-color="#f62d51" />
+                                                    </div>
                                                 </td>
 
                                          </td>
